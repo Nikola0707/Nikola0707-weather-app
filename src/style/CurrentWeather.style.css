@@ -1,0 +1,26 @@
+body{
+    background-image: url(../assets/background-images/cloudy.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.card {
+  width: 40vw;
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+.grid-3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center
+}
+.degree{
+    font-size: 32px;
+    font-weight: bold;
+}
+.grid-item-3 p{
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
