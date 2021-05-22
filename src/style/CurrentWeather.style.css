@@ -1,26 +1,111 @@
 body{
-    background-image: url(../assets/background-images/cloudy.jpg);
+    background-image: url(../assets/background-images/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 
 }
 .card {
-  width: 40vw;
+  width: 60vw;
   margin: 30px auto;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 5px;
+  padding-bottom: 20px;
 }
 .grid-3{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center
 }
+.title{
+    font-size: 50px;
+}
 .degree{
-    font-size: 32px;
+    font-size: 70px;
     font-weight: bold;
 }
 .grid-item-3 p{
     margin: 0;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: bold;
+}
+.grid-7{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.grid-7 p{
+    margin: 0;
+}
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    .grid-item-3 p{
+        font-size: 18px;
+    }
+    .degree{
+        font-size: 50px;
+    }
+    .grid-7 p{
+        font-size: 16px;
+    }
+
+}
+
+@media screen 
+  and (min-device-width: 764px) 
+  and (max-device-width: 1028px) 
+  and (-webkit-min-device-pixel-ratio: 1) {  
+    .card {
+        width: 70vw;
+      }
+    .grid-item-3 p{
+        font-size: 16px;
+    }
+    .degree{
+        font-size: 40px;
+    }
+    .grid-7{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .grid-7 div{
+        border-bottom: 1px solid green;
+    }
+    .grid-7 div:last-child{
+        border-bottom:none;
+    }
+    .grid-7 p{
+        font-size: 20px;
+    }
+
+}
+
+@media screen 
+  and (min-device-width: 425px) 
+  and (max-device-width: 763px) 
+  and (-webkit-min-device-pixel-ratio: 1) {  
+    .card {
+        width: 100%;
+      }
+    .grid-item-3 p{
+        font-size: 16px;
+    }
+    .degree{
+        font-size: 40px;
+    }
+    .grid-7{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-7 div{
+        border-bottom: 1px solid green;
+    }
+    .grid-7 div:last-child{
+        border-bottom:none;
+    }
+    .grid-7 p{
+        font-size: 20px;
+    }
+
 }

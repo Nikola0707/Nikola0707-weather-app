@@ -1,12 +1,7 @@
 import CurrentWeather from "../components/CurrentWeather.component"
 
 const HomePage = () => {
-    return(
-        <>
-            <h1>Home Page</h1>
-            <CurrentWeather/>
-        </>
-    )
+    return <CurrentWeather/>
 }
 
 export default HomePage;
