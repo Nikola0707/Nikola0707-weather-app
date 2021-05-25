@@ -20,9 +20,9 @@ const WeatherCard = ({
       </div>
       <div className="grid-2">
         <div className="grid-item-background-dark-radius-left display-flex">
-          <p className="degree">{Math.floor(temp)}&#8451;</p>
+          <p className="degree degree-30">{Math.floor(temp)}&#8451;</p>
           <div>
-            <p className="mb-0">{weatherDescription}</p>
+            <p className="mb-0 text-20">{weatherDescription}</p>
             <p>
               {city}, {country}
             </p>
