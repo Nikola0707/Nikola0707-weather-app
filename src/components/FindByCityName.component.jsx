@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../style/FindByCityName.style.css";
+import SearchCity from "./SearchCity";
 import WeatherCard from "./WeatherCard";
 
 const FindByCityName = () => {
@@ -48,39 +49,14 @@ const FindByCityName = () => {
   return (
     <>
       {pending ? (
-        <div className="searchCity">
-          <input
-            type="text"
-            name="searchCity"
-            id="searchCity"
-            placeholder="Please provide city name!"
-            onChange={getInput}
-          />
-          <button type="submit" onClick={onClickHandler}>
-          <i className="fas fa-search-location"></i>
-          </button>
-        </div>
+        <SearchCity getInput={getInput} onClickHandler={onClickHandler} />
       ) : (
         <>
           {newSearch ? (
-            <div className="searchCity">
-              <input
-                type="text"
-                name="searchCity"
-                id="searchCity"
-                placeholder="Please provide city name!"
-                onChange={getInput}
-              />
-              <button type="submit" onClick={onClickHandler}>
-              <i className="fas fa-search-location"></i>
-              </button>
-            </div>
+            <SearchCity getInput={getInput} onClickHandler={onClickHandler} />
           ) : (
             <>
-              <i
-                className="fas fa-arrow-circle-left arrow-positioning"
-                onClick={() => setNewSearch(true)}
-              ></i>
+              <i className="fas fa-arrow-circle-left arrow-positioning" onClick={() => setNewSearch(true)}></i>
               <WeatherCard
                 weatherIcon={weatherIcon}
                 temp={temp}
