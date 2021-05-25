@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 body{
     background-image: url(../assets/background-images/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-
+    font-family: 'Roboto', sans-serif;
 }
 .card {
   width: 60vw;
@@ -34,7 +36,7 @@ body{
 }
 .grid-7 p{
     margin: 0;
-}
+}#fff0f0
 
 @media screen 
   and (min-device-width: 1200px) 
@@ -57,7 +59,7 @@ body{
   and (max-device-width: 1028px) 
   and (-webkit-min-device-pixel-ratio: 1) {  
     .card {
-        width: 70vw;
+        width: 80vw;
       }
     .grid-item-3 p{
         font-size: 16px;
@@ -86,26 +88,94 @@ body{
   and (max-device-width: 763px) 
   and (-webkit-min-device-pixel-ratio: 1) {  
     .card {
-        width: 100%;
+        width: 100vw;
+        margin: 0;
       }
-    .grid-item-3 p{
-        font-size: 16px;
+    .grid-3{
+        grid-template-columns: repeat(2, 1fr);
+        
     }
+    .grid-item-1{
+        display: none;
+    }
+    .grid-item-2,
+    .grid-item-3{
+        padding-bottom: 30px;
+    }
+    .grid-item-3 p{
+        font-size: 18px;
+    }
+
     .degree{
         font-size: 40px;
     }
     .grid-7{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
     .grid-7 div{
-        border-bottom: 1px solid green;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: rgb(236, 226, 226);
+        border-radius: 10px 0px;
+        margin: 0 10px 10px 10px;
     }
+
     .grid-7 div:last-child{
         border-bottom:none;
     }
     .grid-7 p{
         font-size: 20px;
+    }
+
+}
+
+@media screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 424px) 
+  and (-webkit-min-device-pixel-ratio: 1) {  
+    .card {
+        width: 100vw;
+        margin: 0;
+    }
+    .title{
+        font-size: 40px;
+    }
+    .grid-3{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-item-1{
+        display: none;
+    }
+    .grid-item-2,
+    .grid-item-3{
+        padding-bottom: 30px;
+    }
+    .grid-item-3 p{
+        font-size: 14px;
+    }
+
+    .degree{
+        font-size: 30px;
+    }
+    .grid-7{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .grid-7 div{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: rgb(236, 226, 226);
+        border-radius: 10px 0px;
+        margin: 0 10px 10px 10px;
+    }
+
+    .grid-7 div:last-child{
+        border-bottom:none;
+    }
+    .grid-7 p{
+        font-size: 16px;
+        font-weight: bold;
     }
 
 }

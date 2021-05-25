@@ -1,0 +1,11 @@
+input{
+    width: 30vw;
+    border: none;
+}
+input:hover{
+    border: none;
+}
+button{
+    background-color: #fff;
+    border:none
+}

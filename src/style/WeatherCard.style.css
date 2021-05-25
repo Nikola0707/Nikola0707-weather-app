@@ -1,0 +1,32 @@
+.container{
+    width: 30vw;
+    background: #fff0f0;
+    border-radius: 20px;
+    padding: 0;
+    font-weight: bold;
+}
+.grid-2{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.display-flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.grid-item-background-dark-radius-left{
+    border-radius: 0 0 0 20px;
+    background: #090705;
+    height: 100%;
+    color: #fff;
+}
+.grid-item-background-light-radius-right{
+    border-radius: 0 0 20px 0;
+    background: #70c2b4;
+}
+.grid-item-background-light-radius-right p{
+    color: #fff0f0;
+}
+.mb-0{
+    padding: 0;
+}

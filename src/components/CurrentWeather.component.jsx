@@ -7,8 +7,7 @@ import "../style/CurrentWeather.style.css";
 
 const CurrentWeather = () => {
   const [status, setStatus] = useState(null);
-  const [lat, setLat] = useState(null);
-  const [long, setLong] = useState(null);
+  
   const [pending, setPending] = useState(true);
   const [cityName, setCityName] = useState(null);
   const [feels_like, setFeels_like] = useState(null);
@@ -47,7 +46,6 @@ const CurrentWeather = () => {
                   `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=hourly,minutely&appid=${process.env.REACT_APP_API_KEY}&units=metric`
                 )
                 .then((response) => {
-                  console.log(response.data.daily);
                   setDailyData(response.data.daily);
                 })
                 .catch((error) => {
@@ -94,8 +92,8 @@ const CurrentWeather = () => {
             </div>
           </div>
           <div className="grid-7">
-            {dailyData.slice(1).map((data) => (
-              <div>
+            {dailyData.slice(1).map((data, index) => (
+              <div key={index}>
                 <p>{
                   // MomentJS
                     moment.unix(data.dt).format("DD/MM/YYYY")                  

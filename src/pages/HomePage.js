@@ -1,7 +1,13 @@
 import CurrentWeather from "../components/CurrentWeather.component"
+import FindByCityName from "../components/FindByCityName.component";
 
 const HomePage = () => {
-    return <CurrentWeather/>
+    return (
+        <>
+        <CurrentWeather/>
+        <FindByCityName />
+        </>
+    )
 }
 
 export default HomePage;
