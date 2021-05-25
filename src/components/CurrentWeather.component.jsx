@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import moment from 'moment'
+import FindByCityName from "../components/FindByCityName.component";
+
+import moment from "moment";
 
 import axios from "axios";
 
@@ -7,7 +9,7 @@ import "../style/CurrentWeather.style.css";
 
 const CurrentWeather = () => {
   const [status, setStatus] = useState(null);
-  
+
   const [pending, setPending] = useState(true);
   const [cityName, setCityName] = useState(null);
   const [feels_like, setFeels_like] = useState(null);
@@ -70,44 +72,49 @@ const CurrentWeather = () => {
       {pending ? (
         <h1>Loading</h1>
       ) : (
-        <div className="card">
-          <p className="title">
-            {cityName} {countryCode}
-          </p>
-          <div className="grid-3">
-            <div className="grid-item-1">
-              <img
-                src={`http://openweathermap.org/img/wn/${weatherIcon}@4x.png`}
-                alt="weather status icon"
-                className="weather-icon"
-              />
-            </div>
-            <div className="grid-item-2">
-              <p className="degree">{Math.floor(temp)}&#8451;</p>
-            </div>
-            <div className="grid-item-3">
-              <p>Feels like: {Math.floor(feels_like)}&#8451;</p>
-              <p>Max temp: {Math.floor(temp_max)}&#8451;</p>
-              <p>Min temp: {Math.floor(temp_min)}&#8451;</p>
-            </div>
-          </div>
-          <div className="grid-7">
-            {dailyData.slice(1).map((data, index) => (
-              <div key={index}>
-                <p>{
-                  // MomentJS
-                    moment.unix(data.dt).format("DD/MM/YYYY")                  
-                  }</p>
+        <>
+          <div className="card">
+            <p className="title">
+              {cityName} {countryCode}
+            </p>
+            <div className="grid-3">
+              <div className="grid-item-1">
                 <img
-                  src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                  src={`http://openweathermap.org/img/wn/${weatherIcon}@4x.png`}
                   alt="weather status icon"
                   className="weather-icon"
                 />
-                <p>{Math.floor(data.temp.day)}&#8451;</p>
               </div>
-            ))}
+              <div className="grid-item-2">
+                <p className="degree">{Math.floor(temp)}&#8451;</p>
+              </div>
+              <div className="grid-item-3">
+                <p>Feels like: {Math.floor(feels_like)}&#8451;</p>
+                <p>Max temp: {Math.floor(temp_max)}&#8451;</p>
+                <p>Min temp: {Math.floor(temp_min)}&#8451;</p>
+              </div>
+            </div>
+            <div className="grid-7">
+              {dailyData.slice(1).map((data, index) => (
+                <div key={index}>
+                  <p>
+                    {
+                      // MomentJS
+                      moment.unix(data.dt).format("DD/MM/YYYY")
+                    }
+                  </p>
+                  <img
+                    src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                    alt="weather status icon"
+                    className="weather-icon"
+                  />
+                  <p>{Math.floor(data.temp.day)}&#8451;</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+          <FindByCityName />
+        </>
       )}
     </>
   );

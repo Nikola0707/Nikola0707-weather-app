@@ -3,6 +3,7 @@ import "../style/FindByCityName.style.css";
 import WeatherCard from "./WeatherCard";
 
 const FindByCityName = () => {
+  const [newSearch, setNewSearch] = useState(false);
   const [city, setCity] = useState(null);
   const [pending, setPending] = useState(true);
   const [temp, setTemp] = useState(null);
@@ -19,24 +20,31 @@ const FindByCityName = () => {
   };
 
   const getWeatherData = () => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const { temp } = data.main;
-        const { icon, description } = data.weather[0];
-        const { country } = data.sys;
+    try {
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          const { temp } = data.main;
+          const { icon, description } = data.weather[0];
+          const { country } = data.sys;
 
-        setCountry(country);
-        setDateTime(data.dt)
-        setTemp(temp);
-        setWeatherIcon(icon);
-        setWeatherDescription(description)
-        setPending(false);
-      });
+          setCountry(country);
+          setDateTime(data.dt);
+          setTemp(temp);
+          setWeatherIcon(icon);
+          setWeatherDescription(description);
+          setPending(false);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
-  const onClickHandler = () => getWeatherData();
+  const onClickHandler = () => {
+    getWeatherData();
+    setNewSearch(false);
+  };
   return (
     <>
       {pending ? (
@@ -49,11 +57,41 @@ const FindByCityName = () => {
             onChange={getInput}
           />
           <button type="submit" onClick={onClickHandler}>
-            Find
+          <i className="fas fa-search-location"></i>
           </button>
         </div>
       ) : (
-        <WeatherCard weatherIcon={weatherIcon} temp={temp} city={city} country={country} dateTime={dateTime}weatherDescription={weatherDescription.toUpperCase()}/>
+        <>
+          {newSearch ? (
+            <div className="searchCity">
+              <input
+                type="text"
+                name="searchCity"
+                id="searchCity"
+                placeholder="Please provide city name!"
+                onChange={getInput}
+              />
+              <button type="submit" onClick={onClickHandler}>
+              <i className="fas fa-search-location"></i>
+              </button>
+            </div>
+          ) : (
+            <>
+              <i
+                className="fas fa-arrow-circle-left arrow-positioning"
+                onClick={() => setNewSearch(true)}
+              ></i>
+              <WeatherCard
+                weatherIcon={weatherIcon}
+                temp={temp}
+                city={city}
+                country={country}
+                dateTime={dateTime}
+                weatherDescription={weatherDescription.toUpperCase()}
+              />
+            </>
+          )}
+        </>
       )}
     </>
   );
