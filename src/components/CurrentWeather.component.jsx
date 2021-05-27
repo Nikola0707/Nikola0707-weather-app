@@ -3,11 +3,17 @@ import moment from "moment";
 import axios from "axios";
 import LoadingSpinner from "./LoadingSpinner.component";
 
+import Map from "../components/Map.component";
+
+
 import "../style/CurrentWeather.style.css";
 import "../style/LoadingSpinner.style.css";
 
 const CurrentWeather = () => {
   const [status, setStatus] = useState(null);
+
+  const [lat, setLat] = useState("");
+  const [lon, setLon] = useState("");
 
   const [pending, setPending] = useState(true);
   const [cityName, setCityName] = useState(null);
@@ -32,6 +38,9 @@ const CurrentWeather = () => {
               `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
             )
             .then((response) => {
+              setLat(position.coords.latitude);
+              setLon(position.coords.longitude);
+
               const main = response.data.main;
               const sys = response.data.sys;
 
@@ -114,7 +123,7 @@ const CurrentWeather = () => {
               ))}
             </div>
           </div>
-          
+          <Map lat={lat} long={lon}/>
         </>
       )}
     </>

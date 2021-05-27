@@ -22,3 +22,23 @@ nav a{
 a:hover{
     color: black;
 }
+
+  
+  @media screen and (min-device-width: 764px) and (max-device-width: 1028px) and (-webkit-min-device-pixel-ratio: 1) {
+    nav a{    
+        font-size: 16px;
+    }
+  }
+  
+  @media screen and (min-device-width: 425px) and (max-device-width: 763px) and (-webkit-min-device-pixel-ratio: 1) {
+    nav a{    
+        font-size: 16px;
+    }
+  }
+  
+  @media screen and (min-device-width: 320px) and (max-device-width: 424px) and (-webkit-min-device-pixel-ratio: 1) {
+    nav a{    
+        font-size: 10px;
+    }
+  }
+  

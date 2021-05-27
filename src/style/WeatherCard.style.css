@@ -1,130 +1,152 @@
-.container{
-    width: 30vw;
-    background: #fff0f0b5;
-    border-radius: 20px;
-    padding: 0;
-    font-weight: bold;
+.container {
+  width: 30vw;
+  background: #fff0f0b5;
+  border-radius: 20px;
+  padding: 0;
+  font-weight: bold;
 }
-.grid-2{
+.grid-weather-card-map {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-items: center;
+  align-content: center;
+}
+.grid-weather-card-map .leaflet-container {
+  height: 100%;
+  margin: 0;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.display-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.grid-item-background-dark-radius-left {
+  border-radius: 0 0 0 20px;
+  background: #090705;
+  height: 100%;
+  color: #fff;
+}
+.grid-item-background-light-radius-right {
+  border-radius: 0 0 20px 0;
+  background: #70c2b4;
+}
+.grid-item-background-light-radius-right p {
+  color: #fff0f0;
+}
+.mb-0 {
+  padding: 0;
+}
+.arrow-positioning {
+  position: absolute;
+  left: 3%;
+  font-size: 35px;
+  padding: 19px 0;
+}
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+  .container {
+    width: 40vw;
+  }
+  .arrow-positioning {
+    left: 32%;
+  }
+  .grid-item-background-light-radius-right p {
+    padding: 10px;
+  }
+}
+
+@media screen and (min-device-width: 764px) and (max-device-width: 1028px) and (-webkit-min-device-pixel-ratio: 1) {
+  input {
+    width: 70%;
+  }
+  .container {
+    width: 80vw;
+  }
+  .arrow-positioning {
+    left: 12%;
+  }
+  .grid-item-background-light-radius-right p {
+    padding: 10px;
+  }
+  .grid-weather-card-map {
+    display: block;
+  }
+  .grid-weather-card-map .leaflet-container {
+    margin-top: 20px;
+    height: 300px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-device-width: 425px) and (max-device-width: 763px) and (-webkit-min-device-pixel-ratio: 1) {
+    input {
+        width: 90%;
+      }
+  .container {
+    width: 95vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .arrow-positioning {
+    left: 7%;
+    padding-top: 30px;
+    font-size: 25px;
+  }
+  .grid-item-background-light-radius-right p {
+    padding: 5px;
+    font-size: 16px;
+  }
+  img {
+    width: 80px;
+  }
+  .degree-30 {
+    font-size: 30px !important;
+  }
+  .text-20 {
+    font-size: 20px !important;
+  }
+  .grid-weather-card-map {
+    display: block;
+  }
+  .grid-weather-card-map .leaflet-container {
+    margin-top: 10px;
+    height: 200px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 424px) and (-webkit-min-device-pixel-ratio: 1) {
+  input {
+    width: 80%;
+  }
+  .container {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .arrow-positioning {
+    left: 7%;
+    padding-top: 30px;
+    font-size: 25px;
+  }
+  .grid-2 {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-}
-.display-flex{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.grid-item-background-dark-radius-left{
-    border-radius: 0 0 0 20px;
-    background: #090705;
-    height: 100%;
-    color: #fff;
-}
-.grid-item-background-light-radius-right{
-    border-radius: 0 0 20px 0;
-    background: #70c2b4;
-}
-.grid-item-background-light-radius-right p{
-    color: #fff0f0;
-}
-.mb-0{
-    padding: 0;
-}
-.arrow-positioning{
-    position: absolute;
-    left: 36%;
-    font-size: 35px;
-    padding: 19px 0;
-}
-
-@media screen 
-  and (min-device-width: 1200px) 
-  and (max-device-width: 1600px) 
-  and (-webkit-min-device-pixel-ratio: 1) { 
-    .container{
-        width: 40vw;
-    }
-    .arrow-positioning {
-        left: 32%;
-    }
-    .grid-item-background-light-radius-right p{
-        padding: 10px;
-    }
-}
-
-@media screen 
-  and (min-device-width: 764px) 
-  and (max-device-width: 1028px) 
-  and (-webkit-min-device-pixel-ratio: 1) {  
-    input{
-        width: 70%;
-    }
-    .container{
-        width: 80vw;
-    }
-    .arrow-positioning {
-        left: 12%;
-    }
-    .grid-item-background-light-radius-right p{
-        padding: 10px;
-    }
-}
-
-@media screen 
-  and (min-device-width: 425px) 
-  and (max-device-width: 763px) 
-  and (-webkit-min-device-pixel-ratio: 1) {  
-    input{
-        width: 92%;
-    }
-    .container{
-        width: 95vw;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-    .arrow-positioning {
-        left: 7%;
-         padding-top: 30px;
-        font-size: 25px;
-    }
-    .grid-item-background-light-radius-right p{
-        padding: 5px;
-        font-size: 16px;
-    }
-    img{
-        width: 80px;
-    }
-    .degree-30{
-        font-size: 30px !important;
-    }
-    .text-20{
-        font-size: 20px !important;
-    }
-}
-
-@media screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 424px) 
-  and (-webkit-min-device-pixel-ratio: 1) {  
-    input{
-        width: 90vw;
-    }
-    .container{
-        width: 95vw;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-    .arrow-positioning {
-        left: 7%;
-         padding-top: 30px;
-        font-size: 25px;
-    }
-    .grid-2{
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    .grid-item-background-dark-radius-left,
-    .grid-item-background-light-radius-right{
-        border-radius: 0;
-    }
+    grid-template-columns: 1fr;
+  }
+  .grid-item-background-dark-radius-left,
+  .grid-item-background-light-radius-right {
+    border-radius: 0;
+  }
+  .grid-weather-card-map {
+    display: block;
+  }
+  .grid-weather-card-map .leaflet-container {
+    margin-top: 10px;
+    height: 100px;
+    width: 100%;
+  }
 }
