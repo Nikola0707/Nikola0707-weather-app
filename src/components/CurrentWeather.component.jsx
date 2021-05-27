@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import FindByCityName from "../components/FindByCityName.component";
 
 import moment from "moment";
 
@@ -113,7 +112,7 @@ const CurrentWeather = () => {
               ))}
             </div>
           </div>
-          <FindByCityName />
+          
         </>
       )}
     </>
