@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-
 import moment from "moment";
-
 import axios from "axios";
+import LoadingSpinner from "./LoadingSpinner.component";
 
 import "../style/CurrentWeather.style.css";
+import "../style/LoadingSpinner.style.css";
 
 const CurrentWeather = () => {
   const [status, setStatus] = useState(null);
@@ -26,6 +26,7 @@ const CurrentWeather = () => {
     } else {
       navigator.geolocation.getCurrentPosition(
         (position) => {
+          //Get current location weather data
           axios
             .get(
               `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
@@ -41,7 +42,8 @@ const CurrentWeather = () => {
               setTemp_min(main.temp_max);
               setCountryCode(sys.country);
               setWeatherIcon(response.data.weather[0].icon);
-
+              
+              // Get current location 7 days weather data
               axios
                 .get(
                   `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=hourly,minutely&appid=${process.env.REACT_APP_API_KEY}&units=metric`
@@ -69,7 +71,7 @@ const CurrentWeather = () => {
   return (
     <>
       {pending ? (
-        <h1>Loading</h1>
+        <LoadingSpinner />
       ) : (
         <>
           <div className="card">
