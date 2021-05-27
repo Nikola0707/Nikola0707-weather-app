@@ -9,3 +9,9 @@ button{
     background-color: #fff;
     border:none
 }
+.goBack{
+    color: black;
+}
+.arrow-back{
+    font-size: 45px;
+}

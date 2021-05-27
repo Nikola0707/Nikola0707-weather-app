@@ -6,6 +6,7 @@ import WeatherCard from "./WeatherCard";
 const FindByCityName = () => {
   const [newSearch, setNewSearch] = useState(false);
   const [city, setCity] = useState(null);
+  const [incorectCity, setIncorectCity] = useState(false);
   const [pending, setPending] = useState(true);
   const [temp, setTemp] = useState(null);
   const [weatherIcon, setWeatherIcon] = useState(null);
@@ -27,6 +28,9 @@ const FindByCityName = () => {
       )
         .then((response) => response.json())
         .then((data) => {
+          if(data.main === undefined){
+            return setIncorectCity(true)
+          }
           const { temp } = data.main;
           const { icon, description } = data.weather[0];
           const { country } = data.sys;
@@ -46,14 +50,20 @@ const FindByCityName = () => {
     getWeatherData();
     setNewSearch(false);
   };
+
   return (
     <>
-      {pending ? (
+      {incorectCity ? 
+      <a className="goBack" href="/search">
+         <i className="fas fa-arrow-circle-left arrow-back "> Please go back, you choose wrong city!</i>
+      </a>
+       :
+      pending ? (
         <SearchCity getInput={getInput} onClickHandler={onClickHandler} />
       ) : (
         <>
           {newSearch ? (
-            <SearchCity getInput={getInput} onClickHandler={onClickHandler} />
+            <SearchCity getInput={getInput} onClickHandler={onClickHandler}/>
           ) : (
             <>
               <i className="fas fa-arrow-circle-left arrow-positioning" onClick={() => setNewSearch(true)}></i>
